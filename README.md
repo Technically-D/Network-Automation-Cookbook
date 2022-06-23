@@ -1,6 +1,6 @@
 # Network-Automation with Ansible
 ---
-Collection of ansible playbooks for configuring network devices. The labs will be configured with EvE-NG and will mostly consits of Cisco IOS. 
+Collection of ansible playbooks for configuring network devices. The labs will be configured with EvE-NG and will mostly consist of Cisco IOS. 
 
 ---
 
