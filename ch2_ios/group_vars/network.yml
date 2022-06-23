@@ -1,6 +1,6 @@
 
 # CONNECTION VARIABLES
-Ansible_user: adns
+Ansible_user: devd
 Ansible_password: cisco
 Ansible_network_os: ios
 Ansible_connection: network_cli
