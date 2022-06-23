@@ -1,0 +1,20 @@
+
+[cisco]
+csr1 ansible_host=192.168.200.230
+csr2 ansible_host=192.168.200.231
+
+[juniper]
+mx1 ansible_host=192.168.200.226
+mx2 ansible_host=192.168.200.232
+
+[core]
+mx1
+mx2
+
+
+[edge]
+csr[1:2]
+
+[network:children]
+core
+edge

@@ -1,0 +1,11 @@
+---
+- name: Initial Playbook
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Display Router Name
+      debug:
+        msg: "Router name is {{hostname}}"
+    - name: Display the Freaking OS
+      debug:
+        msg: "{{hostname}} is running {{os}}"

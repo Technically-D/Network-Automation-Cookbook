@@ -1,0 +1,19 @@
+---
+
+ - name: Ansible Loop over a List
+   hosts: cisco
+   gather_facts: false
+   tasks:
+     - name: Loop over SNMP Servers
+       debug:
+         msg: "Router {{hostname}} with snmp server {{item}}"
+       loop: "{{snmp_servers}}"
+
+ - name: Ansible Loop over a Dictionary
+   hosts: juniper
+   gather_facts: false
+   tasks:
+     - name: Loop over Username and Passwords
+       debug:
+         msg: "Router {{hostname}} with {{item.key}} password {{item.value}}"
+       with_dict: "{{users}}"

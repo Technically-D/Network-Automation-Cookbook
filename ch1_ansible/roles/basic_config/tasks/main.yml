@@ -1,0 +1,12 @@
+---
+ - name: Create Configs directory
+   file:
+     path: "{{ config_dir }}"
+     state: directory
+   run_once: true
+
+ - name: Generate Cisco Basic config
+   template:
+     src: "{{os}}.j2"
+     dest: "{{config_dir}}/{{inventory_hostname}}.cfg"
+# tasks file for basic_config

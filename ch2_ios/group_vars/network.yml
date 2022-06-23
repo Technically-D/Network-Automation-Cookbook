@@ -1,0 +1,19 @@
+
+# CONNECTION VARIABLES
+Ansible_user: adns
+Ansible_password: cisco
+Ansible_network_os: ios
+Ansible_connection: network_cli
+# GLOBAL DNS SERVERS IPs
+dns_servers:
+  - 172.20.1.250
+  - 172.20.1.251
+# GLOBAL NTP SERVER IP
+ntp_server:
+  - 1.1.1.1
+
+# DOMIAN NAME 
+domain_name: "devd.com"
+# DUPLEX/ MTU
+Int_duplex: full
+Int_mtu: 1500

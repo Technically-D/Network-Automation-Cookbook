@@ -1,0 +1,30 @@
+# THESE ARE THE WAN ROUTER IN OSPF AREA 0
+[wan]
+wan01 ansible_host=192.168.200.226
+wan02 ansible_host=192.168.200.231
+
+# THESE ARE THE CORE L3 SWITCHES 
+[core]
+core01 ansible_host=192.168.200.244
+core02 ansible_host=192.168.200.245
+
+# THESE ARE ACCESS SWITCHES/L2 FUNCTIONS ONLY
+[access]
+access01 ansible_host=192.168.200.248
+access02 ansible_host=192.168.200.250
+
+# THIS IS A LAN AND WAN GROUP. DEVICES BEHIND THE WAN ROUTERS ARE LAN
+[lan:children]
+access
+core
+
+# GROUP CALLED NETWORK THAT CONSITS OF ALL NETWORK DEVICES
+[network:children]
+wan
+lan
+
+[network:vars]
+ansible_connection=network_cli 
+ansible_user=adns 
+ansible_pass=cisco
+ansible_network_os=ios
