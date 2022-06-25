@@ -1,0 +1,7 @@
+/.obsidian
+*.zip
+*.log
+*.logs
+.env
+*error.log*
+*debug.log*
