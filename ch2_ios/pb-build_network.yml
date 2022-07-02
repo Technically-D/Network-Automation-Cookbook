@@ -61,6 +61,7 @@
           mode: "{{item.mode}}"
           access_vlan: "{{item.vlan}}"
           state: present
+          
     - name: "P1T3: Configure Interfaces"
       ios_interfaces:
         name: "{{ item.name }}"
