@@ -10,7 +10,7 @@ dns_servers:
   - 172.20.1.251
 # GLOBAL NTP SERVER IP
 ntp_server:
-  - 1.1.1.1
+  - 172.20.1.17
 
 # DOMIAN NAME 
 domain_name: "devd.com"
