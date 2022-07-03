@@ -37,7 +37,7 @@
       with_items: "{{vlans}}"
       tags: vlan
 # THIS PLAY IS CONFIGURING THE TRUNKS ON THE CORE SWITCHES 
-    - name: "Configure L2 Trunks" # MAKE A CORRECTION ON THIS PLAY IT WILL FAIL
+    - name: "Configure L2 Trunks" 
       ios_l2_interfaces:
         config:
           - name: "{{ item.name }}"
