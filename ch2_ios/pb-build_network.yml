@@ -34,7 +34,7 @@
       ios_vlans:
         vlan_id: "{{item.vlan_id}}"
         name: "{{item.name}}"
-        state: "{{item.state}}"
+      state: active
       with_items: "{{vlans}}"
       tags: vlan
 # THIS PLAY IS CONFIGURING THE TRUNKS ON THE CORE SWITCHES 
