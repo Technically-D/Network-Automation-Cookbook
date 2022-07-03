@@ -4,22 +4,17 @@ Interfaces:
   core01:
     - name: GigabitEthernet0/2
       description: access01_GigabitEthernet0/1
-      mode: trunk
     - name: GigabitEthernet0/3
       description: access02_GigabitEthernet1/0
-      mode: trunk
     - name: GigabitEthernet0/1 
       description: core02_GigabitEthernet0/1
   access01:
     - name: GigabitEthernet0/1
       description: core02_GigabitEthernet0/2
-      mode: trunk
     - name: GigabitEthernet0/3
       description: core02_GigabitEthernet0/3
-      mode: trunk
     - name: GigabitEthernet0/0
       description: Data VLAN 10
-      mode: access 
       vlan: 10
   core02:
 
