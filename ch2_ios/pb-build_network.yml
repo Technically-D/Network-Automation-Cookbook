@@ -42,7 +42,6 @@
         config:
           - name: "{{ item.name }}"
             trunk: 
-              allowed_vlans: "{{ vlans | map(attribute='vlan_id') | join(' , ') }}"
               encapsulation: dot1q
         state: merged
       with_items: "{{ Interfaces[inventory_hostname] }}"
