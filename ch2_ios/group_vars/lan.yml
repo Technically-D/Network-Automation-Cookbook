@@ -28,7 +28,10 @@ Interfaces:
 vlans:
   - name: Data
     vlan_id: 10
+    state: active
   - name: Voice
     vlan_id: 20
+    state: active
   - name: Web
     vlan_id: 100
+    state: active

@@ -31,9 +31,10 @@
       with_items: "{{ Interfaces[inventory_hostname] }}"
 # THIS PLAY IS CONFIGURING THE L2 VLANS
     - name: "Create L2 VLANS"
-      ios_vlan:
+      ios_vlans:
         vlan_id: "{{item.vlan_id}}"
         name: "{{item.name}}"
+        state: "{{item.state}}"
       with_items: "{{vlans}}"
       tags: vlan
 # THIS PLAY IS CONFIGURING THE TRUNKS ON THE CORE SWITCHES 
