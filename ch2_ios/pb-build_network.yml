@@ -32,11 +32,11 @@
 # THIS PLAY IS CONFIGURING THE L2 VLANS
     - name: "Create L2 VLANS"
       ios_vlans:
-        vlan_id: "{{item.vlan_id}}"
-        name: "{{item.name}}"
-      state: active
-      with_items: "{{vlans}}"
-      tags: vlan
+        config:
+          - name: "{{ item.name }}"
+            vlan_id: "{{ item.vlan_id }}"
+        with_items: "{{ vlans }}" 
+        tags: vlan
 # THIS PLAY IS CONFIGURING THE TRUNKS ON THE CORE SWITCHES 
     - name: "Configure L2 Trunks" 
       ios_l2_interfaces:
