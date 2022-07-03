@@ -5,43 +5,52 @@
   tags: lan
   gather_facts: true
   tasks:
-# THIS PLAY CONFIGURES THE HOST NAME AND DOMAIN NAME
-    - name: "Configure Hostname and Domain Name"
-      ios_system:
-        hostname: "{{inventory_hostname}}"
-        domain_name: "{{domain_name}}"
-        lookup_enabled: false
-        name_servers: "{{dns_servers}}"
-# THIS PLAY IS CONFIGURING THE NTP SERVERS 
-    - name: "Configure NTP"
-      ios_ntp:
-        server: "{{ntp_server}}"
-        logging: true
-        state: present
-# THIS PLAY IS CONFIGURING THE INTERFACES
-    - name: "Configure Interfaces"
-      ios_interfaces:
-        config:
-          - name: "{{item.name}}"
-            description: "{{item.description}}"
-            enabled: true
-            duplex: "{{ Int_duplex }}"
-            mtu: "{{Int_mtu}}"
-        state: merged
-      with_items: "{{ Interfaces[inventory_hostname] }}"
-# THIS PLAY IS CONFIGURING THE L2 VLANS
-    - name: "Create L2 VLANS"
-      ios_vlan:
-        vlan_id: "{{item.vlan_id}}"
-        name: "{{item.name}}"
-      with_items: "{{vlans}}"
-      tags: vlan
-# THIS PLAY IS CONFIGURING THE TRUNKS ON THE CORE SWITCHES 
-    - name: "Configure L2 Trunks" 
+# # THIS PLAY CONFIGURES THE HOST NAME AND DOMAIN NAME
+#     - name: "Configure Hostname and Domain Name"
+#       ios_system:
+#         hostname: "{{inventory_hostname}}"
+#         domain_name: "{{domain_name}}"
+#         lookup_enabled: false
+#         name_servers: "{{dns_servers}}"
+# # THIS PLAY IS CONFIGURING THE NTP SERVERS 
+#     - name: "Configure NTP"
+#       ios_ntp:
+#         server: "{{ntp_server}}"
+#         logging: true
+#         state: present
+# # THIS PLAY IS CONFIGURING THE INTERFACES
+#     - name: "Configure Interfaces"
+#       ios_interfaces:
+#         config:
+#           - name: "{{item.name}}"
+#             description: "{{item.description}}"
+#             enabled: true
+#             duplex: "{{ Int_duplex }}"
+#             mtu: "{{Int_mtu}}"
+#         state: merged
+#       with_items: "{{ Interfaces[inventory_hostname] }}"
+# # THIS PLAY IS CONFIGURING THE L2 VLANS
+#     - name: "Create L2 VLANS"
+#       ios_vlan:
+#         vlan_id: "{{item.vlan_id}}"
+#         name: "{{item.name}}"
+#       with_items: "{{vlans}}"
+#       tags: vlan
+# # THIS PLAY IS CONFIGURING THE TRUNKS ON THE CORE SWITCHES 
+#     - name: "Configure L2 Trunks" 
+#       ios_l2_interfaces:
+#         config:
+#           - name: "{{ item.name }}"
+#             trunk: 
+#               encapsulation: dot1q
+#         state: merged
+#       with_items: "{{ Interfaces[inventory_hostname] }}"
+# THIS PLAY IS CONFIGURING THE ACCESS PORTS
+    - name: "Configure Access Ports"
       ios_l2_interfaces:
         config:
-          - name: "{{ item.name }}"
-            trunk: 
-              encapsulation: dot1q
+          name: "{{ item.name }}"
+          access:
         state: merged
-      with_items: "{{ Interfaces[inventory_hostname] }}"
+      with_items: "{{ Interfaces[inventory_hostname] | selectattr('equalto', 'access') | list }}"
+
