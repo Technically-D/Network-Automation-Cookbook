@@ -60,10 +60,8 @@
           state: present
       with_items: "{{ Interfaces[inventory_hostname] | selectattr('mode','equalto', 'access') | list }}"
 
----
-
 - name: "PLAY2: Configure Core Switches"
-  hosts: Core
+  hosts: core
   tags: l3_core
   tasks:
 
