@@ -20,11 +20,15 @@ Interfaces:
       mode: trunk
     - name: GigabitEthernet0/0
       description: Data VLAN 10
+      mode: access
       vlan: 10
   core02:
 
   access02:
-
+    - name: GigabitEthernet0/1
+      description: Voice VLAN 20
+      vlan: 20
+      mode: access
 vlans:
   - name: Data
     vlan_id: 10
