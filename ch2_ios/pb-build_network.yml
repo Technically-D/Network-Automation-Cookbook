@@ -64,7 +64,6 @@
   hosts: core
   tags: l3_core
   tasks:
-
     - name: "Create L3 VLAN Interfaces"
       ios_l3_interface:
         name: "{{item.name}}"
