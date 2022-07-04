@@ -37,16 +37,14 @@
             vlan_id: "{{ item.vlan_id }}"
       with_items: "{{ vlans }}" 
       tags: vlan
-#THIS PLAY IS CONFIGURING THE TRUNKS ON THE CORE SWITCHES
-
-#Trying something new here
-
+#This play will enable dot1q on the trunk ports#
     - name: "Enable dot1q Trunks"
       ios_config:
         lines:
           - switchport trunk encapsulation dot1q
         parents: interface {{item.name}}
       with_items: "{{ Interfaces[inventory_hostname] | selectattr('mode','equalto','trunk') | list }}"
+# This play will configure the trunk ports
     - name: "Configure L2 Trunks"
       ios_l2_interface:
         name: "{{item.name}}"
