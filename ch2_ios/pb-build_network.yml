@@ -57,8 +57,7 @@
           name: "{{ item.name }}"
           mode: "{{item.mode}}"
           access_vlan: "{{item.vlan}}"
-          state: present
-     
+          state: present  
       with_items: "{{ Interfaces[inventory_hostname] | selectattr('mode','equalto', 'access') | list }}"
 #************This begins the second play of this playbook*************#
 - name: "PLAY2: Configure Core Switches"
