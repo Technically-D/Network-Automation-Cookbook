@@ -71,3 +71,10 @@
       with_items: "{{svi_interfaces}}"
       tags: l3_svi
 
+    - name: "Create VRRP Configs"
+      ios_config:
+        parents: Interface "{{item.name}}"
+          lines:
+            - vrrp {{item.name.split('Vlan') [1]}} ip {{item.ipv4 | ipv4(254) | ipaddr{'address')}}
+        with_items: "{{svi_interfaces | selectattr('vrrp', 'eualto',true)| list }}"
+
