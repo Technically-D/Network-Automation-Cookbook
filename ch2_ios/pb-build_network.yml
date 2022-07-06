@@ -76,5 +76,5 @@
         parents: Interface"{{item.name}}"
           lines:
             - vrrp {{item.name.split('Vlan') [1]}} ip {{item.ipv4 | ipv4(254) | ipaddr{'address')}}
-        with_items: "{{svi_interfaces | selectattr('vrrp','eqalto',true)| list }}"
+        with_items: "{{svi_interfaces | selectattr('vrrp','equalto',true)| list }}"
 
