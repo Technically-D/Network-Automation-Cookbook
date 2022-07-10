@@ -78,7 +78,6 @@
             - vrrp {{item.name.split('Vlan') [1]}} priority {{hst_vrrp_priority }}
             - vrrp {{item.name.split('Vlan') [1]}} ip {{item.ipv4 | ipv4(254) |ipaddr('address')}}
       with_items: "{{svi_interfaces | selectattr('vrrp','equalto',true) | list }}"
-# *******************This is the third play of this playbook**************#
 
     - name: "P2T9: Configure OSPF On Interfaces"
       ios_config:
