@@ -17,7 +17,7 @@ core_vlans:
   - name: 13_core_vlan
     vlan_id: 200
     interface: GigabitEthernet0/1
-
+    
 core_l3_links:
   core01:
     - name: GigabitEthernet0/0
