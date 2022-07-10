@@ -75,6 +75,6 @@
       ios_config:
         parents: Interface {{item.name}}
           lines:
-            - vrrp {{item.name.split('Vlan') [1]}} ip {{item.ipv4 | ipv4(254) | ipaddr{'address')}}
-        with_items: "{{svi_interfaces | selectattr('vrrp','equalto',true)| list }}"
-
+            - vrrp {{item.name.split('Vlan') [1]}} priority {{hst_vrrp_priority }}
+            - vrrp {{item.name.split('Vlan') [1]}} ip {{item.ipv4 | ipv4(254) |ipaddr('address')}}
+      with_items: "{{svi_interfaces | selectattr('vrrp','equalto',true) | list }}"
