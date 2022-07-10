@@ -72,11 +72,11 @@
       tags: l3_svi
 
     - name: "Create VRRP Configs"
-      ios_config:
-        parents: Interfaces {{item.name}}
+      ios_config: 
           lines:
             - vrrp {{item.name.split('Vlan') [1]}} priority {{hst_vrrp_priority }}
             - vrrp {{item.name.split('Vlan') [1]}} ip {{item.ipv4 | ipv4(254) |ipaddr('address')}}
+          parents: Interfaces {{item.name}}
       with_items: "{{svi_interfaces | selectattr('vrrp','equalto',true) | list }}"
 
     - name: "P2T9: Configure OSPF On Interfaces"
