@@ -79,10 +79,16 @@
             - vrrp {{item.name.split('Vlan') [1]}} ip {{item.ipv4 | ipv4(254) |ipaddr('address')}}
       with_items: "{{svi_interfaces | selectattr('vrrp','equalto',true) | list }}"
 # *******************This is the third play of this playbook**************#
-    - name: "PLAY 2: Configure Core Switches"
-      hosts: core
-      tags: l3_core 
-      tasks:  
-        - name: "P2T9: Configure OSPF On Interfaces"
-          ios_config:
-            parents: Interfaces {{item.name}}
+- name: "PLAY 2: Configure Core Switches"
+  hosts: core
+  tags: l3_core 
+  tasks:  
+    - name: "P2T9: Configure OSPF On Interfaces"
+      ios_config:
+      parents: Interfaces {{item.name}}
+      lines:
+        - ip ospf {{ ospf_process }} area {{ ospf_area }}
+        - ip ospf network point-to-point
+        - ip ospf cost {{item.ospf_metric | default(ospf_metric)}}
+      with_items: "{{ (svi_interfaces + core_l3_links[inventory_hostname]) | selectattr('ospf') | list }}"
+
