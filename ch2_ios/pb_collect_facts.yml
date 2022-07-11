@@ -1,0 +1,17 @@
+---
+
+- name: "PLAY 1: Collect Device Facts"
+  hosts: core,wan
+  tasks:
+
+    - name: "P1T1: Gather Device Facts"
+      ios_facts:
+      register: device_facts
+    - debug: var=device_facts
+
+    - name: "P1T2: Write Device Facts"
+      blockinfile:
+        path: ./facts.yml
+        create: yes
+        block: | 
+          device_facts:
