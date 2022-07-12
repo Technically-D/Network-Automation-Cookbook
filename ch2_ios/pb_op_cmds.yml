@@ -30,7 +30,7 @@
         ios_command:
           comamnds: show running-config
         register: show_run
-        
+
       - name: "P1T3: Save  Running Config per Device"
         copy:
           content: "{{ show_run.stdout[0] }}"
@@ -47,3 +47,9 @@
           comamnds: "{{item}}"
         register: op_output
         with_items: "{{ op_cmds }}"
+
+      - name: "P1T6: Save output per each node"
+        copy:
+          content: "{{ item.stdout[0] }}"
+          dest: "{{ op_folder}}/{{ inventory_hostname }}/{{item.item | replace(' ', '_')}}.txt"
+        with_items: "{{ op_output.results }}"
