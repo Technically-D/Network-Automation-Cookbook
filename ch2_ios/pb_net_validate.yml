@@ -8,3 +8,8 @@
     tasks:
       - name: "Get all SVI Prefixes"
         set_fact:
+          all_svi_prefixes: "{{ svi_interfaces | selecattr('vrrp') | map(attribute+'ipv4') | list }}"
+        
+        run_once: yes
+        delegate_to: localhost
+        tags: svi
