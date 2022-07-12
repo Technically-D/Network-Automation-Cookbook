@@ -22,3 +22,13 @@
               ios_version: {{ node.Ansible_net_version }}
           {% endfor %}
           all_loopbacks:
+          {% for host in play_hosts %}
+          {% set node = hostvars[host] %}
+          {% if node.Ansible_net_interfaces is defined %}
+          {% if node.Ansible_net_interfaces.Loopback0 is defined %}
+            - {{ node.Ansible_net_interfaces.Loopback0.ipv4[0].address }}
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+        run_once: yes
+        delegate_to: localhost
