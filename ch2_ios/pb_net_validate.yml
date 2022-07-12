@@ -1,0 +1,10 @@
+---
+
+  - name: "Play 1: Validate Network Reachabiltiy"
+    hosts:
+    vars:
+      host_id: 10
+      packet_count: 10
+    tasks:
+      - name: "Get all SVI Prefixes"
+        set_fact:
