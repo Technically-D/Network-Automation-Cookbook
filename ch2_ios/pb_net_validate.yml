@@ -8,8 +8,14 @@
     tasks:
       - name: "Get all SVI Prefixes"
         set_fact:
-          all_svi_prefixes: "{{ svi_interfaces | selecattr('vrrp') | map(attribute+'ipv4') | list }}"
-        
+          all_svi_prefixes: "{{ svi_interfaces | selecattr('vrrp') | map(attribute+'ipv4') | list }"       
         run_once: yes
         delegate_to: localhost
+        tags: svi
+
+      - name: "Ping Hosts in all VLANS"
+        ios_ping:
+          dest: "{{ item | ipaddr(10) | ipaddr('address') }}"
+        with_items: "{{ all_svi_prefixes }}"
+        ignore_errors: yes
         tags: svi
