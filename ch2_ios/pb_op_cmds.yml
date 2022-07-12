@@ -35,4 +35,14 @@
           content: "{{ show_run.stdout[0] }}"
           dest: "{{ config_folder }}/{{ inventory_hostname }}.cfg"
 
-  
+      - name: "P1T4: Create Folder per Device"
+        file:
+          path: "{{ op_folder}}/{{ inventory_hostname }}"
+          state: directory
+        delegate_to: localhost
+      
+      - name: "P1T5: Get Operational Data from Devices"
+        ios_command:
+          comamnds: "{{item}}"
+        register: op_output
+        with_items: "{{ op_cmds }}"
