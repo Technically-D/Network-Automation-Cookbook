@@ -25,3 +25,9 @@
               state: directory
         run_once: yes
         delegate_to: localhost
+
+      - name: "P1T2: Get Running configs from Devies"
+        ios_command:
+          comamnds: 
+
+  
