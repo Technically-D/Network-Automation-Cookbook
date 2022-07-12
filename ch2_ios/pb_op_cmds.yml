@@ -1,0 +1,17 @@
+---
+  
+  - name: "Play 1: Execute Operational Commands"
+    hosts: network
+    vars:
+      config_folder: "configs"
+      op_folder: "op_data"
+      op_cmds:
+        - sh ip ospf neighbor
+        - show ip route
+    tasks:
+      - name: "P1T1: Build Directories to Store Data"
+        block:
+          - name: "Create folder to store Device config"
+            file:
+              path: "{{ config_folder }}"
+              state: directory
