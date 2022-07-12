@@ -90,4 +90,3 @@
         - ip ospf network point-to-point
         - ip ospf cost {{item.ospf_metric | default(ospf_metric)}}
       with_items: "{{ (svi_interfaces + core_l3_links[inventory_hostname]) | selectattr('ospf') | list }}"
-

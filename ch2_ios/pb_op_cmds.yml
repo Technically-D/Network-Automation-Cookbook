@@ -15,3 +15,13 @@
             file:
               path: "{{ config_folder }}"
               state: directory
+          - name: "Create folder to store operational Commands"
+            file:
+              path: "{{ op_folder }}"
+              state: directory
+          - name: "Create Folder to  store operational Commands"
+            file:
+              path: "{{ op_folder }}"
+              state: directory
+        run_once: yes
+        delegate_to: localhost
