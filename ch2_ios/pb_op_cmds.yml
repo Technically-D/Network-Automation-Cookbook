@@ -30,6 +30,7 @@
         ios_command:
           comamnds: show running-config
         register: show_run
+        
       - name: "P1T3: Save  Running Config per Device"
         copy:
           content: "{{ show_run.stdout[0] }}"
