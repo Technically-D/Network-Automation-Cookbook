@@ -28,6 +28,11 @@
 
       - name: "P1T2: Get Running configs from Devies"
         ios_command:
-          comamnds: 
+          comamnds: show running-config
+        register: show_run
+      - name: "P1T3: Save  Running Config per Device"
+        copy:
+          content: "{{ show_run.stdout[0] }}"
+          dest: "{{ config_folder }}/{{ inventory_hostname }}.cfg"
 
   
