@@ -15,3 +15,10 @@
         create: yes
         block: | 
           device_facts:
+          {% for host in play_hosts %}
+          {% set node = hostvars[hsot] %}
+            {{ node.Ansible_nethostname }}:
+              serial_number: {{ node.ansible_net_serialnam }}
+              ios_version: {{ node.Ansible_net_version }}
+          {% endfor %}
+          all_loopbacks:
