@@ -12,3 +12,11 @@
         register: ospf_output
         vars: 
           Ansible_connection: network_cli
+
+      - name: "FACT >> Pyats OSPF Info"
+        set_fact:
+          pyats_ospf_data: "{{ ospf_output.structured.interfaces }}"
+
+      - name: " FACT >> Set OSPF peers"
+        set_fact:
+          OSPF_PEERS: "{{ wan_l3_links[inventory_hostname] | selectattr('ospf','equalto',true) | list }}"
