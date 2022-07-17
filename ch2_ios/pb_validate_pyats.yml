@@ -20,3 +20,15 @@
       - name: " FACT >> Set OSPF peers"
         set_fact:
           OSPF_PEERS: "{{ wan_l3_links[inventory_hostname] | selectattr('ospf','equalto',true) | list }}"
+
+      - name: Validate Number of OSPF peers"
+        assert:
+          that:
+            - pyats_ospf_data | length == OSPF_PEERS | length
+        with_items: "{{ OSPF_PEERS }}"
+
+      - name: Validate All Peers are in Full State
+        assert:
+          that:
+            - pyats_ospf_data[item.name] | json_query('neighbors.*.state')  | first == 'FULL/ -'
+        with_items: "{{ OSPF_PEERS }}"
