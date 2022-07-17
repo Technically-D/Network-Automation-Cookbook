@@ -1,0 +1,14 @@
+---
+
+  - name: Network Validation with pyATS
+    hosts: wan
+    roles:
+      - Ansible-pyats
+    vars:
+      Ansible_connection: local
+    tasks:
+      - pyats_parse_command:
+          command: show ip ospf neighbor
+        register: ospf_output
+        vars: 
+          Ansible_connection: network_cli
