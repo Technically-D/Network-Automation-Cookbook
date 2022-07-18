@@ -1,0 +1,2 @@
+Ansible_network_os: junos
+Ansible_connection: netconf
