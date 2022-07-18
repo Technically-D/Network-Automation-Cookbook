@@ -1,0 +1,9 @@
+
+
+system {
+    host-name {{inventory_hostname}};
+    no_redirects;
+{% if global_vars.dns is defined %}
+    name-server {
+{%      for dns_server in global_vars.dns %}
+        {{dns_server}};
