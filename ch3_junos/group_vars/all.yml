@@ -1,0 +1,17 @@
+---
+
+  tmp_dir: ./tmp
+  config_dir: ./configs
+  global:
+    dns:
+    - 172.20.1.1
+    - 172.20.1.15
+    root_pwd: $1$ciI4raxU$XfCVzABJKdALim0aWVMq10
+    users:
+    - role: super-user
+      SSH_key: Ansible_SSH_key.pub
+      username: admin
+    - hash: $1$mR940Z$ipX9sLKTRDe1jQXvWFfJm1
+      passwd: 141161C180506262E757A60
+      role: super-user
+      username: Ansible
