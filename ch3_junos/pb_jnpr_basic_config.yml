@@ -8,3 +8,6 @@
   - name: "Configure Users"
     junos_user:
       name: "{{ item.username }}"
+      role: "{{ item.role }}"
+      SSHkey: "{{ lookup ('file', item.SSH_key) }}"
+    with_items: "{{ global.users | selectattr('SSH_key','defined') | list }}"
