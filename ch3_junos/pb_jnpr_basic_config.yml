@@ -1,0 +1,10 @@
+---
+
+  - name: Configure juniper Devices
+    junos_system:
+      hostname: "{{ inventory_hostname }}"
+      name_servers: "{{ global.dns }}"
+      state: present
+  - name: "Configure Users"
+    junos_user:
+      name: "{{ item.username }}"
