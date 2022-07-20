@@ -7,3 +7,9 @@ system {
     name-server {
 {%      for dns_server in global_vars.dns %}
         {{dns_server}};
+
+{%      endfor %}
+    }
+{%  endif %}
+    root-authentication {
+        encrypted-password "{{ global.root_pwd }}"; ## SECRET-DATA
