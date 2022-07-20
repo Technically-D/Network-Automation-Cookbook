@@ -12,4 +12,12 @@ system {
     }
 {%  endif %}
     root-authentication {
-        encrypted-password "{{ global.root_pwd }}"; ## SECRET-DATA
+        encrypted-password "{{ global_vars.root_pwd }}"; ## SECRET-DATA
+    }
+    login {
+{%      for user in global_vars.user if user.hash is defined %}
+        user {{ user.username }} {
+            class super-user;
+            authentication {
+                encrypted-password "{{user.hash}}"; ## SECRET-DATA
+            }
