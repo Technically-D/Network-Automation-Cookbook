@@ -23,4 +23,13 @@ system {
             }
         }
 {%      endfor  %}
-{%      for user in global.users if user.SSH_key is defined %}     
+{%      for user in global.users if user.SSH_key is defined %}
+        user {{ user.username }} {
+            class {{ user.role }};
+            authentication {
+                SSH-rsa "{{lookup('file',user.SSH_key)}}"; ## SECRET-DATA
+            }
+        }
+{%      endfor %}
+    }
+}     
