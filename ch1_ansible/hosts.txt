@@ -1,0 +1,19 @@
+[cisco]
+csr1 ansible_host=
+csr2 ansible_hosts=
+
+[juniper]
+mx1 ansible_host=
+mx2 ansible_host=
+
+[core]
+mx1
+mx2
+
+
+[edge]
+csr[1:2]
+
+[network:children]
+core
+edge
