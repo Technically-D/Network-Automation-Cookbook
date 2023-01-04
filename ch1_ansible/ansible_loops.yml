@@ -15,4 +15,4 @@
     tasks: 
       - name: Loop overr Username and Passwords
         debug: 
-          msg: "Router {{ hostname }} with user {{item.key }} password {{ item.value }}"
+          msg: "Router {{ hostname }} with user {{ item.key }} password {{ item.value }}"
