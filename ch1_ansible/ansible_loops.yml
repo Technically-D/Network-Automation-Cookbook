@@ -8,3 +8,11 @@
         debug:
           msg: "Router {{ hostname }} with snmp server {{ item }}"
         with_items: "{{ snmp_servers }}"
+
+  - name: Ansible Loop over a Dictionary
+    hosts: juniper
+    gather_facts: no
+    tasks: 
+      - name: Loop overr Username and Passwords
+        debug: 
+          msg: "Router {{ hostname }} with user {{item.key }} password {{ item.value }}"
