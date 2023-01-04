@@ -1,0 +1,10 @@
+---
+  - name: Ansible Loop over a List
+    hosts: cisco
+    gather_facts: no
+    tasks:
+
+      - name: Loop over SNMP Server
+        debug:
+          msg: "Router {{ hostname }} with snmp server {{ item }}"
+        with_items: "{{ snmp_servers }}"
