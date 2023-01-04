@@ -15,6 +15,7 @@
         template:
           src: "templates/ios_basic.j2"
           dest: "configs/{{inventory_hostname}}.cfg"
+        delegate_to: localhost
 
   - name: Generate Juniper config from Jinja2
     hosts: juniper
