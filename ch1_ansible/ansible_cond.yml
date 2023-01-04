@@ -1,0 +1,9 @@
+---
+  - name: Using conditionals
+    hosts: all
+    gather_facts: no
+    tasks:
+      - name: Ren for Edge nodes only
+        debug:
+          msg: "Router name is {{ hostname }}"
+        when: "'edge' in group_names"
