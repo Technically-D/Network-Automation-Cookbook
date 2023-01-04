@@ -7,3 +7,9 @@
         debug:
           msg: "Router name is {{ hostname }}"
         when: "'edge' in group_names"
+
+      - name: Run for Only MX1 nodes
+        debug: 
+          msg: "{{ hostname }} is running {{ os }}"
+        when:
+        - inventory_hostname == 'mx1'
