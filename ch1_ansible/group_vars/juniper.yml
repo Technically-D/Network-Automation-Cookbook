@@ -1,1 +1,4 @@
 os: junos
+users:
+  admin: admin123
+  oper: oper123
