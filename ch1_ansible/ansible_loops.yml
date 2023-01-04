@@ -3,7 +3,6 @@
     hosts: cisco
     gather_facts: no
     tasks:
-
       - name: Loop over SNMP Server
         debug:
           msg: "Router {{ hostname }} with snmp server {{ item }}"
