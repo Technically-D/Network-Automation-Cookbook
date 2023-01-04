@@ -13,6 +13,7 @@
     hosts: juniper
     gather_facts: no
     tasks: 
-      - name: Loop overr Username and Passwords
+      - name: Loop over Username and Passwords
         debug: 
           msg: "Router {{ hostname }} with user {{ item.key }} password {{ item.value }}"
+        with_dict: "{{ users }}"
