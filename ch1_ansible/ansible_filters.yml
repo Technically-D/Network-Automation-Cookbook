@@ -5,3 +5,9 @@
       interface:
         - { port: FastEthernet0/0, prefix: 10.1.1.0/24 }
         - { port: FastEthernet1/0, prefix: 10.1.2.0/24 }
+    tasks: 
+      - name: Generate Interface Config
+        blockinfile:
+          block: |
+            hostname {{ hostname | upper }}
+            {% for intf in interfaces %}
