@@ -11,3 +11,11 @@
           block: |
             hostname {{ hostname | upper }}
             {% for intf in interfaces %}
+            !
+            interface {{ intf.port }} 
+              ip address {{intf.prefix | ipv4(1) | ipv4('address') }} {{intf.prefix | ipv4('netmask') }}
+            !
+            {% endfor %}
+            dest: "configs/csr1_interfaces.cfg"
+            create: yes
+          delegate_to: localhost
