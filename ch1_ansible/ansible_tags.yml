@@ -1,2 +1,8 @@
 ---
   - name: Using Ansible Tags
+    hosts: cisco
+    gather_facts: false
+    tasks:
+      - name: Print OSPF
+        debug: 
+          msg: "Router {{ hostname }} will Run OSPF"
