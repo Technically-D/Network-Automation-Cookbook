@@ -1,0 +1,7 @@
+---
+  - name: Ansible Filters
+    hosts: csr1
+    vars:
+      interface:
+        - { port: FastEthernet0/0, prefix: 10.1.1.0/24 }
+        - { port: FastEthernet1/0, prefix: 10.1.2.0/24 }
