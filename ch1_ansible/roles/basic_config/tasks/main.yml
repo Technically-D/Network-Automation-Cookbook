@@ -1,2 +1,7 @@
 ---
+  - name: Create Configs Directory
+    file: 
+      path: "{{ config_dir }}"
+      state: directory
+    run_once: true
 # tasks file for basic_config
