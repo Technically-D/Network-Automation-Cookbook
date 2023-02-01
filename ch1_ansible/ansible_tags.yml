@@ -14,3 +14,8 @@
         tags:
           - bgp
           - routing
+
+      - name: Print NTP
+        debug: 
+          msg: "Router {{ hostname }} will run NTP"
+        tags: ntp
