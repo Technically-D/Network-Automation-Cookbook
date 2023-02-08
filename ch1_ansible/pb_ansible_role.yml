@@ -1,0 +1,6 @@
+---
+  - name: Build Basic Config Using Roles
+    host: all
+    connection: local
+    roles:
+      - basic_config
