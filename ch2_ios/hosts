@@ -8,8 +8,8 @@ core02 Ansible_host=
 
 
 [wan]
-wan01 Ansible_host=
-wan02 Ansible_host=
+wan01 Ansible_host=192.168.20.9
+wan02 Ansible_host=192.168.20.4
 
 [lan:children]
 access
