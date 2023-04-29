@@ -1,0 +1,6 @@
+--- # network variables
+
+Ansible_network_os: ios
+Ansible_connection: network_cli
+Ansible_user: adns
+Ansible_password: cisco
