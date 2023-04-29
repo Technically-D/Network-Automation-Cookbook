@@ -1,0 +1,21 @@
+[access]
+access01 Ansible_host=
+access02 Ansible_host=
+
+[core]
+core01 Ansible_host=
+core02 Ansible_host=
+
+
+[wan]
+wan01 Ansible_host=
+wan02 Ansible_host=
+
+[lan:children]
+access
+core
+
+
+[network:children]
+lan
+wan
