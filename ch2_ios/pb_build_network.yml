@@ -2,3 +2,8 @@
 
 - name: "PLAY 1: Configure All LAN Switches"
   hosts: lan
+  tags: lan
+  tasks:
+    - name: "Configure Hostname and Domain Name"
+      ios_system:
+        hostname: "{{ inventory_hostname }}"
