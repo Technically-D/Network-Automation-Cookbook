@@ -1,3 +1,4 @@
 --- # network build playbook
 
 - name: "PLAY 1: Configure All LAN Switches"
+  hosts: lan
