@@ -4,3 +4,9 @@ Ansible_network_os: ios
 Ansible_connection: network_cli
 Ansible_user: adns
 Ansible_password: cisco
+
+name_server:
+  - 172.20.1.250
+  - 172.20.1.251
+
+ntp_server: 172.20.1.17
