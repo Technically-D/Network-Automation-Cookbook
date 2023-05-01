@@ -1,6 +1,6 @@
 [access]
-access01 Ansible_host=
-access02 Ansible_host=
+access01 Ansible_host=192.168.20.3
+access02 Ansible_host=192.168.20.2
 
 [core]
 core01 Ansible_host=
