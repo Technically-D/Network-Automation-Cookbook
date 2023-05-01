@@ -3,8 +3,8 @@ access01 Ansible_host=192.168.20.3
 access02 Ansible_host=192.168.20.2
 
 [core]
-core01 Ansible_host=
-core02 Ansible_host=
+core01 Ansible_host=192.168.20.20
+core02 Ansible_host=192.168.20.10
 
 
 [wan]
