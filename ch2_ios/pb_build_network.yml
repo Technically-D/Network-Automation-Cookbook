@@ -3,15 +3,22 @@
 - name: "PLAY 1: Configure All LAN Switches"
   hosts: lan
   tags: lan
+  gather_facts: false
+  vars: # for execution environment
+    ansible_connection: ansible.netcommon.network_cli
+    ansible_network_os: cisco.ios.ios
+    ansible_become: yes
+    ansible_become_method: enable
+
   tasks:
     - name: "Configure Hostname and Domain Name"
       ios_system:
         hostname: "{{ inventory_hostname }}"
-        domain_name: "{{ domain_name }}"
+        #domain_name: "{{ domain_name }}"
         lookup_enabled: no
         name_servers: "{{ name_servers }}"
     - name: "Configure NTP"
       ios_ntp:
-        server: "{{ ntp_server }}"
+        server: "{{ ntp_servers }}"
         logging: true
         state: present
