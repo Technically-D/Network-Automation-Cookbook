@@ -20,3 +20,8 @@ core
 [network:children]
 lan
 wan
+
+[network:vars]
+Ansible_network_os: ios
+Ansible_connection: network_cli
+Ansible_user: adns
