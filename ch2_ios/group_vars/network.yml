@@ -1,9 +1,9 @@
 --- # network variables
 
-Ansible_network_os: ios
-Ansible_connection: network_cli
-Ansible_user: adns
-Ansible_password: cisco
+ansible_connection: ansible.netcommon.network_cli
+ansible_network_os: cisco.ios.ios
+ansible_become: yes
+ansible_become_method: enable
 
 name_servers:
   - 172.20.1.250

@@ -4,12 +4,7 @@
   hosts: lan
   tags: lan
   gather_facts: false
-  vars: # for execution environment
-    ansible_connection: ansible.netcommon.network_cli
-    ansible_network_os: cisco.ios.ios
-    ansible_become: yes
-    ansible_become_method: enable
-
+  
   tasks:
     - name: "Configure Hostname and Domain Name"
       ios_system:
