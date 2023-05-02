@@ -1,0 +1,11 @@
+---
+- name: "Play2: Record Keys in Known Hosts file"
+  hosts: localhost
+  vars:
+  - hosts_file: "~/.ssh/known_hosts"
+  tasks:
+    - name: "Create Known Hosts file"
+      file:
+        path: "{{ hosts_file }}"  
+        state: file
+        
