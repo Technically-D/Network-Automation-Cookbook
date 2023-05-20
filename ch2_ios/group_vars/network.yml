@@ -14,3 +14,6 @@ name_servers:
 ntp_servers: 172.20.1.17
 
 domain_name: cyberdynesystems.skynet.local
+
+intf_duplex: full
+intf_mtu: 1500
