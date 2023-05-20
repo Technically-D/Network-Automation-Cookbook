@@ -16,19 +16,26 @@ interfaces:
       mode: trunk
     - name: GigabitEthernet0/1
       description: to core02
+      mode:
     - name: GigabitEthernet1/0
       description: Management
+      mode:
     - name: GigabitEthernet0/0
       description: to wan01
+      mode:
   core02:
     - name: GigabitEthernet0/1
       description: to core01
+      mode:
     - name: GigabitEthernet0/2
       description: to access01
+      mode:
     - name: GigabitEthernet0/3
       description: to access02
+      mode:
     - name: GigabitEthernet1/0
       description: Management
+      mode:
 
   access01:
     - name: GigabitEthernet0/0
@@ -37,6 +44,7 @@ interfaces:
       vlan: 10
     - name: GigabitEthernet0/2
       description: Management
+      mode:
     - name: GigabitEthernet0/1
       description: to core01
       mode: trunk
@@ -54,6 +62,7 @@ interfaces:
       vlan: 100
     - name: GigabitEthernet0/2
       description: Management
+      mode:
     - name: GigabitEthernet0/3
       description: to core02
       mode: trunk
