@@ -29,3 +29,30 @@ interfaces:
       description: to access02
     - name: GigabitEthernet1/0
       description: Management
+
+  access01:
+    - name: GigabitEthernet0/0
+      description: vlan 10
+      mode: access
+      vlan: 10
+    - name: GigabitEthernet0/2
+      description: Management
+    - name: GigabitEthernet0/1
+      description: to core01
+    - name: GigabitEthernet0/3
+      description: to core02
+  access02:
+    - name: GigabitEthernet0/0
+      description: vlan 20
+      mode: access
+      vlan: 20
+    - name: GigabitEthernet0/1
+      description: vlan 100
+      mode: access
+      vlan: 100
+    - name: GigabitEthernet0/2
+      description: Management
+    - name: GigabitEthernet0/3
+      description: to core02
+    - name: GigabitEthernet1/0
+      description: to core01
