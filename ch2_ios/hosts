@@ -1,17 +1,17 @@
 
 [access]
-access01 ansible_host=192.168.20.5
-access02 ansible_host=192.168.20.7
+access01 ansible_host=192.168.20.16
+access02 ansible_host=192.168.20.17
 
 
 [core]
-core01 ansible_host=192.168.20.8
-core02 ansible_host=192.168.20.10
+core01 ansible_host=192.168.20.18
+core02 ansible_host=192.168.20.19
 
 
 [wan]
-wan01 ansible_host=192.168.20.9
-wan02 ansible_host=192.168.20.4
+wan01 ansible_host=192.168.20.21
+wan02 ansible_host=192.168.20.20
 
 [lan:children]
 access
