@@ -27,7 +27,7 @@
           enabled: true
       with_items: "{{ interfaces[inventory_hostname] }}"
       register: ios_intf
-
+# this is here to debug the variable the previous play was set to
     - name: debug the iso_intf
       ansible.builtin.debug:
         var: ios_intf
