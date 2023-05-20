@@ -19,10 +19,15 @@
         state: present
     - name: "P1T3: Configure Interfaces"
       cisco.ios.ios_interfaces:
-        name: "{{ item.name  }}"
-        description: "{{ item.description }}"
-        duplex: "{{ intf_duplex }}"
-        mtu: "{{ intf_mtu }}"
-        state: up
+        config:
+        - name: "{{ item.name  }}"
+          description: "{{ item.description }}"
+          duplex: "{{ intf_duplex }}"
+          mtu: "{{ intf_mtu }}"
+          enabled: true
       with_items: "{{ interfaces[inventory_hostname] }}"
       register: ios_intf
+
+    - name: debug the iso_intf
+      ansible.builtin.debug:
+        var: ios_intf
