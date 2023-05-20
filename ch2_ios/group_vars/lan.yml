@@ -5,3 +5,12 @@ vlans:
     vlan_id: 20
   - name: Web
     vlan_id: 100
+
+interfaces:
+  core01:
+    - name: GigabitEthernet0/2
+      description: To access01
+      mode: trunk
+    - name: GigabitEthernet0/3
+      description: to access02
+      mode: trunk
