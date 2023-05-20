@@ -17,3 +17,12 @@
         server: "{{ ntp_servers }}"
         logging: true
         state: present
+    - name: "P1T3: Cinfigure Interfaces"
+      cisco.ios.ios_interfaces:
+        name: "{{ item.name  }}"
+        description: "{{ item.description }}"
+        duplex: "{{ intf_duplex }}"
+        mtu: "{{ intf_mtu }}"
+        state: up
+      with_items: "{{ interfaces[inventory_hostname] }}"
+      register: ios_intf
