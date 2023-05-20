@@ -39,8 +39,10 @@ interfaces:
       description: Management
     - name: GigabitEthernet0/1
       description: to core01
+      mode: trunk
     - name: GigabitEthernet0/3
       description: to core02
+      mode: trunk
   access02:
     - name: GigabitEthernet0/0
       description: vlan 20
@@ -54,5 +56,7 @@ interfaces:
       description: Management
     - name: GigabitEthernet0/3
       description: to core02
+      mode: trunk
     - name: GigabitEthernet1/0
       description: to core01
+      mode: turnk
