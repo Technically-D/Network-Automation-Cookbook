@@ -12,3 +12,5 @@ name_servers:
   - 172.20.1.251
 
 ntp_servers: 172.20.1.17
+
+domain_name: cyberdynesystems.skynet.local
