@@ -17,7 +17,7 @@
         server: "{{ ntp_servers }}"
         logging: true
         state: present
-    - name: "P1T3: Cinfigure Interfaces"
+    - name: "P1T3: Configure Interfaces"
       cisco.ios.ios_interfaces:
         name: "{{ item.name  }}"
         description: "{{ item.description }}"
