@@ -9,7 +9,7 @@
     - name: "Configure Hostname and Domain Name"
       ios_system:
         hostname: "{{ inventory_hostname }}"
-        #domain_name: "{{ domain_name }}"
+        domain_name: "{{ domain_name }}"
         lookup_enabled: no
         name_servers: "{{ name_servers }}"
     - name: "Configure NTP"
