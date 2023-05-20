@@ -10,14 +10,22 @@ interfaces:
   core01:
     - name: GigabitEthernet0/2
       description: To access01
-      mode: trunk
-      
+      mode: trunk     
     - name: GigabitEthernet0/3
       description: to access02
       mode: trunk
-
     - name: GigabitEthernet0/1
       description: to core02
-
+    - name: GigabitEthernet1/0
+      description: Management
+    - name: GigabitEthernet0/0
+      description: to wan01
+  core02:
+    - name: GigabitEthernet0/1
+      description: to core01
+    - name: GigabitEthernet0/2
+      description: to access01
+    - name: GigabitEthernet0/3
+      description: to access02
     - name: GigabitEthernet1/0
       description: Management
