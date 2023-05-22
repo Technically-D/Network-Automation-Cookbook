@@ -56,5 +56,16 @@
           state: active
       with_items: "{{vlans}}"
       tags: vlans
+
+    - name: "Configure Access Ports"
+      cisco.ios.ios_l2_interfaces:
+        config:
+        - name: "{{item.name}}"
+          mode: "{{item.mode}}"
+          access:
+            vlan: "{{item.vlan}}"
+      with_items: "{{ interfaces[inventory_hostname] | selectattr('mode','equalto','access') | list }}"
+
+        
        
         
