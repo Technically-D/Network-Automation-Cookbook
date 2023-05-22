@@ -55,5 +55,6 @@
           vlan_id: "{{item.vlan_id}}"
           state: active
       with_items: "{{vlans}}"
+      tags: vlans
        
         
