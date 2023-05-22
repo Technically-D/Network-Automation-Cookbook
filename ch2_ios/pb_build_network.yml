@@ -47,4 +47,10 @@
           trunk:
             allowed_vlans: 10,20,100
       with_items: "{{ interfaces[inventory_hostname] | selectattr('mode','equalto','trunk') | list }}"
+
+    - name: "P1T4: Create L2 VLANs"
+      cisco.ios.ios_vlans:
+        config:
+        - name: "{{item.name}}"
+          vlan_id: 10
         
