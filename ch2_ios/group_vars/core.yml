@@ -12,4 +12,10 @@ svi_interfaces:
     vrrp: yes
     ospf: passive
   - name: Vlan20
-    ipv4:
+    ipv4: 10.1.20.0/24
+    vrrp: yes
+    ospf: passive
+  - name: Vlan100
+    ipv4: 10.1.100.0/24
+    vrrp: yes
+    ospf: passive
