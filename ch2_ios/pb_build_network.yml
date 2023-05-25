@@ -77,6 +77,12 @@
           ipv4: 
           - address: "{{item.ipv4 | ipv4(hst_svi_id)}}"
       with_items: "{{svi_interfaces}}"
+    - name: "Enable the VLAN Interfaces"  
+      cisco.ios.ios_interfaces:
+        config: 
+        - name: "{{ item.name }}"
+          enabled: true
+      with_items: "{{svi_interfaces}}"
 
         
        
