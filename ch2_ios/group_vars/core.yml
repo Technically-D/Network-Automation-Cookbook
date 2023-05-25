@@ -1,0 +1,7 @@
+---
+# variables for core_vlans
+
+core_vlans:
+  - name: l3_core_vlan
+    vlan_id: 200
+    interface: 
