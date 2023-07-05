@@ -84,6 +84,15 @@
           enabled: true
       with_items: "{{svi_interfaces}}"
 
+    - name: "Create VRRP Configs"
+      cisco.ios.ios_config:
+        lines:
+          - vrrp {{ item.name.split('Vlan') [1] }} priority {{hst_vrrp_priority }}
+          - vrrp {{ item.name.split('Vlan') [1] }} ip {{item.ipv4 | ipv4(254) | ipaddr('address') }}
+        parents: interface {{item.name}}
+      with_items: "{{ svi_interfaces | selectattr('vrrp','equalto',true) | list }}"
+      tags: vrrp
+
         
        
         
